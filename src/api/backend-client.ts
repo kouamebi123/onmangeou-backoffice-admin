@@ -9,11 +9,11 @@ import { ApiError, parseProblem, unwrapEnvelope } from '@/api/envelope';
 import type { ResponseEnvelope } from '@/api/envelope';
 import { t } from '@/i18n/messages';
 
-export const DEFAULT_API_BASE_URL = 'http://127.0.0.1:3000/api/v1';
+export const DEFAULT_API_BASE_URL = 'https://onmangeou-backend-api-production.up.railway.app/api/v1';
 
 export function apiBaseUrl(): string {
   const configured = process.env['API_BASE_URL'] ?? process.env['ONMANGEOU_API_BASE_URL'];
-  const origin = (configured ?? 'http://127.0.0.1:3000').replace(/\/$/, '');
+  const origin = (configured ?? DEFAULT_API_BASE_URL).replace(/\/$/, '');
   return origin.endsWith('/api/v1') ? origin : `${origin}/api/v1`;
 }
 

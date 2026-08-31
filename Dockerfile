@@ -9,7 +9,7 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
 FROM deps AS build
-ARG API_BASE_URL=http://api:3000/api/v1
+ARG API_BASE_URL=https://onmangeou-backend-api-production.up.railway.app/api/v1
 ENV API_BASE_URL=$API_BASE_URL
 COPY . .
 RUN pnpm build
