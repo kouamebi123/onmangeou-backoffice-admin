@@ -31,7 +31,7 @@ export function AppShell({ children, actorLabel }: { children: ReactNode; actorL
             src="/brand/onmangeou-logo-full-dark.svg"
             alt={t('app.name')}
             width={140}
-            height={91}
+            height={41}
             unoptimized
           />
           <p className="muted">{actorLabel}</p>

@@ -16,7 +16,7 @@ export default function ConnexionPage() {
           src="/brand/onmangeou-logo-full-light.svg"
           alt={t('app.name')}
           width={180}
-          height={117}
+          height={52}
           unoptimized
           priority
         />
