@@ -144,16 +144,15 @@ export async function listAdminReviews(): Promise<
     establishment_name: string;
   }>
 > {
-  const envelope =
-    await adminGet<
-      Array<{
-        id: string;
-        score: number;
-        body: string | null;
-        status: string;
-        establishment_name: string;
-      }>
-    >('/admin/reviews');
+  const envelope = await adminGet<
+    Array<{
+      id: string;
+      score: number;
+      body: string | null;
+      status: string;
+      establishment_name: string;
+    }>
+  >('/admin/reviews');
   return envelope.data;
 }
 
@@ -184,16 +183,15 @@ export async function listAdminTickets(): Promise<
     phone_e164: string;
   }>
 > {
-  const envelope =
-    await adminGet<
-      Array<{
-        id: string;
-        subject: string;
-        body: string;
-        status: string;
-        full_name: string | null;
-        phone_e164: string;
-      }>
-    >('/admin/support-tickets');
+  const envelope = await adminGet<
+    Array<{
+      id: string;
+      subject: string;
+      body: string;
+      status: string;
+      full_name: string | null;
+      phone_e164: string;
+    }>
+  >('/admin/support-tickets');
   return envelope.data;
 }

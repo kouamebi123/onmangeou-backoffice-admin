@@ -6,3 +6,4 @@ node_modules
 pnpm-lock.yaml
 docs/reference
 public/brand
+next-env.d.ts
