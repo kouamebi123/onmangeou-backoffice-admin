@@ -30,7 +30,9 @@ export async function refundOrderAction(orderId: string): Promise<{ ok: boolean;
   }
 }
 
-export async function closeTicketAction(ticketId: string): Promise<{ ok: boolean; error?: string }> {
+export async function closeTicketAction(
+  ticketId: string,
+): Promise<{ ok: boolean; error?: string }> {
   try {
     await adminPost(`/admin/support-tickets/${ticketId}/close`, {});
     revalidatePath('/support');

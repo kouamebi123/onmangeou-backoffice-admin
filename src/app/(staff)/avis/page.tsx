@@ -10,7 +10,9 @@ export default async function ReviewsPage() {
     <div className="stack">
       <header className="page-header">
         <h1>Avis</h1>
-        <p className="notice">Modération des avis publiés. Un avis masqué disparaît des fiches publiques.</p>
+        <p className="notice">
+          Modération des avis publiés. Un avis masqué disparaît des fiches publiques.
+        </p>
       </header>
       {items.length === 0 ? (
         <EmptyState title="Aucun avis" />
@@ -26,7 +28,8 @@ export default async function ReviewsPage() {
             {
               key: 'actions',
               header: '',
-              render: (row) => (row.status === 'PUBLISHED' ? <HideReviewButton reviewId={row.id} /> : null),
+              render: (row) =>
+                row.status === 'PUBLISHED' ? <HideReviewButton reviewId={row.id} /> : null,
             },
           ]}
         />

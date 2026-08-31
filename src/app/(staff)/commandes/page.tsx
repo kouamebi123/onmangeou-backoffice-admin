@@ -11,7 +11,10 @@ export default async function OrdersPage() {
     <div className="stack">
       <header className="page-header">
         <h1>{t('orders.title')}</h1>
-        <p className="notice">Supervision des tickets marketplace. Le remboursement sandbox n’appelle aucun prestataire réel.</p>
+        <p className="notice">
+          Supervision des tickets marketplace. Le remboursement sandbox n’appelle aucun prestataire
+          réel.
+        </p>
       </header>
       {items.length === 0 ? (
         <EmptyState title={t('orders.empty')} />

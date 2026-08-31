@@ -26,7 +26,8 @@ export default async function SupportPage() {
             {
               key: 'actions',
               header: '',
-              render: (row) => (row.status === 'OPEN' ? <CloseTicketButton ticketId={row.id} /> : null),
+              render: (row) =>
+                row.status === 'OPEN' ? <CloseTicketButton ticketId={row.id} /> : null,
             },
           ]}
         />

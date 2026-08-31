@@ -20,8 +20,8 @@ export function AuditList({ items }: { items: AuditLog[] }) {
           header: t('audit.resource'),
           render: (row) => `${row.resourceType}${row.resourceId ? ` · ${row.resourceId}` : ''}`,
         },
-        { key: 'actor', header: t('audit.actor'), render: (row) => row.actorUserId ?? '—'},
-        { key: 'reason', header: t('audit.reason'), render: (row) => row.reason ?? '—'},
+        { key: 'actor', header: t('audit.actor'), render: (row) => row.actorUserId ?? '—' },
+        { key: 'reason', header: t('audit.reason'), render: (row) => row.reason ?? '—' },
         {
           key: 'occurredAt',
           header: t('audit.occurredAt'),

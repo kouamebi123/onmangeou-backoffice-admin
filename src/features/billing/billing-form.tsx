@@ -7,7 +7,13 @@ import { TextArea, TextField } from '@/components/text-field';
 import { saveModulePricesAction } from '@/features/billing/actions';
 import { t } from '@/i18n/messages';
 
-export function BillingForm({ catalog, canWrite }: { catalog: ModulePriceCatalog; canWrite: boolean }) {
+export function BillingForm({
+  catalog,
+  canWrite,
+}: {
+  catalog: ModulePriceCatalog;
+  canWrite: boolean;
+}) {
   const [notice, setNotice] = useState(catalog.notice);
   const [amounts, setAmounts] = useState<Record<string, string>>(
     Object.fromEntries(catalog.modules.map((item) => [item.code, item.monthlyPrice.amount])),
@@ -71,7 +77,9 @@ export function BillingForm({ catalog, canWrite }: { catalog: ModulePriceCatalog
             step={1}
             inputMode="numeric"
             value={amounts[item.code] ?? '0'}
-            onChange={(event) => setAmounts((current) => ({ ...current, [item.code]: event.target.value }))}
+            onChange={(event) =>
+              setAmounts((current) => ({ ...current, [item.code]: event.target.value }))
+            }
             disabled={!canWrite}
           />
           <label className="field">

@@ -2,7 +2,11 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/button';
-import { closeTicketAction, hideReviewAction, refundOrderAction } from '@/features/moderation/actions';
+import {
+  closeTicketAction,
+  hideReviewAction,
+  refundOrderAction,
+} from '@/features/moderation/actions';
 
 export function HideReviewButton({ reviewId }: { reviewId: string }) {
   const [busy, setBusy] = useState(false);

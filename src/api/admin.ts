@@ -1,6 +1,13 @@
 import { callBackend } from '@/api/backend-client';
 import type { ResponseEnvelope } from '@/api/envelope';
-import type { AdminEstablishment, AdminOrder, AdminUser, AuditLog, PageQuery, VerificationCase } from '@/api/types';
+import type {
+  AdminEstablishment,
+  AdminOrder,
+  AdminUser,
+  AuditLog,
+  PageQuery,
+  VerificationCase,
+} from '@/api/types';
 import { readAccessToken } from '@/auth/session';
 import { redirect } from 'next/navigation';
 
@@ -129,11 +136,24 @@ export async function listAdminOrders(): Promise<AdminOrder[]> {
 }
 
 export async function listAdminReviews(): Promise<
-  Array<{ id: string; score: number; body: string | null; status: string; establishment_name: string }>
+  Array<{
+    id: string;
+    score: number;
+    body: string | null;
+    status: string;
+    establishment_name: string;
+  }>
 > {
-  const envelope = await adminGet<
-    Array<{ id: string; score: number; body: string | null; status: string; establishment_name: string }>
-  >('/admin/reviews');
+  const envelope =
+    await adminGet<
+      Array<{
+        id: string;
+        score: number;
+        body: string | null;
+        status: string;
+        establishment_name: string;
+      }>
+    >('/admin/reviews');
   return envelope.data;
 }
 
@@ -155,10 +175,25 @@ export async function fetchModulePrices(): Promise<ModulePriceCatalog> {
 }
 
 export async function listAdminTickets(): Promise<
-  Array<{ id: string; subject: string; body: string; status: string; full_name: string | null; phone_e164: string }>
+  Array<{
+    id: string;
+    subject: string;
+    body: string;
+    status: string;
+    full_name: string | null;
+    phone_e164: string;
+  }>
 > {
-  const envelope = await adminGet<
-    Array<{ id: string; subject: string; body: string; status: string; full_name: string | null; phone_e164: string }>
-  >('/admin/support-tickets');
+  const envelope =
+    await adminGet<
+      Array<{
+        id: string;
+        subject: string;
+        body: string;
+        status: string;
+        full_name: string | null;
+        phone_e164: string;
+      }>
+    >('/admin/support-tickets');
   return envelope.data;
 }
