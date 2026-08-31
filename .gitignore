@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+build/
+coverage/
+*.tsbuildinfo
+
+# Secrets et configuration locale : jamais commites (specification section 22).
+.env
+.env.*
+!.env.example
+
+.DS_Store
+*.log

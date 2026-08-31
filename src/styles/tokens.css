@@ -1,0 +1,45 @@
+:root {
+  --color-brand-deep: #173b36;
+  --color-brand-primary: #1f6f5f;
+  --color-brand-accent: #e8783e;
+  --color-brand-cream: #f7f2e8;
+  --color-text-primary: #21302d;
+  --color-text-on-brand: #ffffff;
+  --color-text-muted: #5b6b67;
+  --color-border-default: #d9e1de;
+  --color-surface-mint: #eef5f2;
+  --color-surface-white: #ffffff;
+  --color-feedback-error: #c63d3d;
+  --color-feedback-warning: #b96912;
+  --color-feedback-success: #1f6f5f;
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --shadow-subtle: 0 1px 2px rgba(23, 59, 54, 0.06);
+  --shadow-raised: 0 4px 12px rgba(23, 59, 54, 0.1);
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-xxl: 28px;
+  --line-tight: 1.35;
+  --line-normal: 1.45;
+  --touch-min: 44px;
+  --nav-width: 260px;
+  --motion-base: 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-base: 0ms;
+  }
+}
