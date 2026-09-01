@@ -114,7 +114,33 @@
     "resource": "Ressource",
     "actor": "Acteur",
     "reason": "Motif",
-    "occurredAt": "Date"
+    "occurredAt": "Date",
+    "actions": {
+      "auth.otp.requested": "Code OTP demandé",
+      "auth.otp.verified": "Code OTP vérifié",
+      "auth.otp.failed": "Code OTP invalide",
+      "auth.session.refreshed": "Session rafraîchie",
+      "auth.session.revoked": "Session révoquée",
+      "auth.token.replay_detected": "Tentative de réutilisation de token détectée",
+      "account.anonymized": "Compte anonymisé",
+      "organization.created": "Organisation créée",
+      "establishment.created": "Établissement créé",
+      "establishment.updated": "Établissement modifié",
+      "establishment.hours.updated": "Horaires mis à jour",
+      "establishment.published": "Établissement publié",
+      "establishment.verification.submitted": "Demande de vérification soumise",
+      "establishment.verification.decided": "Décision de vérification enregistrée",
+      "member.invited": "Membre invité",
+      "member.role.changed": "Rôle du membre modifié",
+      "menu.created": "Menu créé",
+      "menu.published": "Menu publié",
+      "product.created": "Plat créé",
+      "product.updated": "Plat modifié",
+      "product.price.changed": "Prix du plat modifié",
+      "product.availability.changed": "Disponibilité du plat modifiée",
+      "module.entitlement.overridden": "Droit module outrepassé",
+      "module.prices.updated": "Tarifs modules mis à jour"
+    }
   },
   "status": {
     "OPEN": "Ouvert",
@@ -135,5 +161,22 @@
   },
   "actions": {
     "close": "Fermer"
+  },
+  "modules": {
+    "storefront.basic": "Vitrine",
+    "catalog.advanced": "Catalogue avancé",
+    "orders.marketplace": "Commandes en ligne",
+    "orders.manual": "Commandes de salle",
+    "reservations.tables": "Réservations",
+    "payments.online": "Paiement en ligne",
+    "cash.register": "Caisse",
+    "finance.expenses": "Dépenses",
+    "finance.credits": "Crédits et dettes",
+    "inventory.simple": "Stock simple",
+    "inventory.ingredients": "Stock par ingrédients",
+    "delivery.internal": "Livraison interne",
+    "marketing.promotions": "Promotions",
+    "analytics.advanced": "Statistiques avancées",
+    "organization.multisite": "Multi-établissements"
   }
 }
