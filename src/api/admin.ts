@@ -195,3 +195,7 @@ export async function listAdminTickets(): Promise<
   >('/admin/support-tickets');
   return envelope.data;
 }
+
+export async function fetchAdminCapabilities(): Promise<string[]> {
+  return (await adminGet<{ permissions: string[] }>('/admin/capabilities')).data.permissions;
+}

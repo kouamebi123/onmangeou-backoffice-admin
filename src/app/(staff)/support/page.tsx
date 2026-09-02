@@ -1,3 +1,4 @@
+import { fetchAdminCapabilities } from '@/api/admin';
 import { listAdminTickets } from '@/api/admin';
 import { DataTable } from '@/components/data-table';
 import { EmptyState } from '@/components/feedback';
@@ -5,6 +6,8 @@ import { CloseTicketButton } from '@/features/moderation/moderation-buttons';
 
 export default async function SupportPage() {
   const items = await listAdminTickets();
+
+  const canWrite = (await fetchAdminCapabilities()).includes('admin.support.write');
 
   return (
     <div className="stack">
@@ -27,7 +30,7 @@ export default async function SupportPage() {
               key: 'actions',
               header: '',
               render: (row) =>
-                row.status === 'OPEN' ? <CloseTicketButton ticketId={row.id} /> : null,
+                canWrite && row.status === 'OPEN' ? <CloseTicketButton ticketId={row.id} /> : null,
             },
           ]}
         />

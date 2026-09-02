@@ -178,5 +178,13 @@
     "marketing.promotions": "Promotions",
     "analytics.advanced": "Statistiques avancées",
     "organization.multisite": "Multi-établissements"
+  },
+  "moderation": {
+    "hide": "Masquer l’avis",
+    "refund": "Rembourser (simulation)",
+    "close": "Clore le ticket",
+    "confirm": "Confirmer cette action ?",
+    "success": "Action enregistrée.",
+    "error": "L’action n’a pas abouti. Réessayez."
   }
 }

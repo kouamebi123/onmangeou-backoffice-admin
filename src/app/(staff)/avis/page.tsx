@@ -1,3 +1,4 @@
+import { fetchAdminCapabilities } from '@/api/admin';
 import { listAdminReviews } from '@/api/admin';
 import { DataTable } from '@/components/data-table';
 import { EmptyState } from '@/components/feedback';
@@ -5,6 +6,8 @@ import { HideReviewButton } from '@/features/moderation/moderation-buttons';
 
 export default async function ReviewsPage() {
   const items = await listAdminReviews();
+
+  const canWrite = (await fetchAdminCapabilities()).includes('admin.review.moderate');
 
   return (
     <div className="stack">
@@ -29,7 +32,7 @@ export default async function ReviewsPage() {
               key: 'actions',
               header: '',
               render: (row) =>
-                row.status === 'PUBLISHED' ? <HideReviewButton reviewId={row.id} /> : null,
+                canWrite && row.status === 'PUBLISHED' ? <HideReviewButton reviewId={row.id} /> : null,
             },
           ]}
         />

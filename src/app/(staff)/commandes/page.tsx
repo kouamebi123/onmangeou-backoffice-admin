@@ -1,3 +1,4 @@
+import { fetchAdminCapabilities } from '@/api/admin';
 import { listAdminOrders } from '@/api/admin';
 import { DataTable } from '@/components/data-table';
 import { EmptyState } from '@/components/feedback';
@@ -6,6 +7,8 @@ import { t } from '@/i18n/messages';
 
 export default async function OrdersPage() {
   const items = await listAdminOrders();
+
+  const canWrite = (await fetchAdminCapabilities()).includes('admin.payment.refund');
 
   return (
     <div className="stack">
@@ -31,7 +34,7 @@ export default async function OrdersPage() {
               key: 'actions',
               header: '',
               render: (row) =>
-                row.payment_status === 'SUCCEEDED' ? <RefundOrderButton orderId={row.id} /> : null,
+                canWrite && row.payment_status === 'SUCCEEDED' ? <RefundOrderButton orderId={row.id} /> : null,
             },
           ]}
         />
