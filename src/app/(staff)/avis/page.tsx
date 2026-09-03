@@ -18,7 +18,7 @@ export default async function ReviewsPage() {
           Modération des avis publiés. Un avis masqué disparaît des fiches publiques.
         </p>
       </header>
-      <ReportQueue canWrite={canWrite}/>
+      <ReportQueue canWrite={canWrite} />
       {items.length === 0 ? (
         <EmptyState title="Aucun avis" />
       ) : (
@@ -34,7 +34,9 @@ export default async function ReviewsPage() {
               key: 'actions',
               header: '',
               render: (row) =>
-                canWrite && row.status === 'PUBLISHED' ? <HideReviewButton reviewId={row.id} /> : null,
+                canWrite && row.status === 'PUBLISHED' ? (
+                  <HideReviewButton reviewId={row.id} />
+                ) : null,
             },
           ]}
         />

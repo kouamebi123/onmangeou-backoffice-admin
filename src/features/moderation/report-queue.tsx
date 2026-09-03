@@ -11,19 +11,18 @@ export async function ReportQueue({ canWrite }: { canWrite: boolean }) {
     MISLEADING: t('reviewReports.misleading'),
     OTHER: t('reviewReports.other'),
   };
-  const reports =
-    await adminGet<
-      Array<{
-        id: string;
-        review_id: string;
-        reason: string;
-        detail: string | null;
-        body: string | null;
-        establishment_name: string;
-        photos: string[];
-        review_status: string;
-      }>
-    >('/admin/review-reports');
+  const reports = await adminGet<
+    Array<{
+      id: string;
+      review_id: string;
+      reason: string;
+      detail: string | null;
+      body: string | null;
+      establishment_name: string;
+      photos: string[];
+      review_status: string;
+    }>
+  >('/admin/review-reports');
   return (
     <section className="stack">
       <h2>{t('reviewReports.title')}</h2>

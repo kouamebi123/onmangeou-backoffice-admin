@@ -9,7 +9,8 @@ import { ApiError, parseProblem, unwrapEnvelope } from '@/api/envelope';
 import type { ResponseEnvelope } from '@/api/envelope';
 import { t } from '@/i18n/messages';
 
-export const DEFAULT_API_BASE_URL = 'https://onmangeou-backend-api-production.up.railway.app/api/v1';
+export const DEFAULT_API_BASE_URL =
+  'https://onmangeou-backend-api-production.up.railway.app/api/v1';
 
 export function apiBaseUrl(): string {
   const configured = process.env['API_BASE_URL'] ?? process.env['ONMANGEOU_API_BASE_URL'];

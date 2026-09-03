@@ -34,7 +34,9 @@ export default async function OrdersPage() {
               key: 'actions',
               header: '',
               render: (row) =>
-                canWrite && row.payment_status === 'SUCCEEDED' ? <RefundOrderButton orderId={row.id} /> : null,
+                canWrite && row.payment_status === 'SUCCEEDED' ? (
+                  <RefundOrderButton orderId={row.id} />
+                ) : null,
             },
           ]}
         />
