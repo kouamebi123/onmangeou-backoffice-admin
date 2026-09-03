@@ -3,6 +3,7 @@ import { listAdminReviews } from '@/api/admin';
 import { DataTable } from '@/components/data-table';
 import { EmptyState } from '@/components/feedback';
 import { HideReviewButton } from '@/features/moderation/moderation-buttons';
+import { ReportQueue } from '@/features/moderation/report-queue';
 
 export default async function ReviewsPage() {
   const items = await listAdminReviews();
@@ -17,6 +18,7 @@ export default async function ReviewsPage() {
           Modération des avis publiés. Un avis masqué disparaît des fiches publiques.
         </p>
       </header>
+      <ReportQueue canWrite={canWrite}/>
       {items.length === 0 ? (
         <EmptyState title="Aucun avis" />
       ) : (

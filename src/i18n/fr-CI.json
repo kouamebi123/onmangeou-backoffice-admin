@@ -1,4 +1,18 @@
 {
+  "reviewReports": {
+    "spam": "Publicité ou spam",
+    "abuse": "Propos offensants",
+    "privacy": "Informations privées",
+    "misleading": "Contenu trompeur",
+    "other": "Autre motif",
+    "title": "Signalements à examiner",
+    "hint": "Les 100 signalements les plus anciens sont présentés. Traitez-les pour afficher les suivants. Aucun avis n’est masqué automatiquement.",
+    "empty": "Aucun signalement en attente.",
+    "resolution": "Motif de la décision",
+    "dismiss": "Classer sans suite",
+    "hide": "Masquer l’avis et traiter le signalement",
+    "photo": "Photo jointe à l’avis signalé"
+  },
   "app": {
     "name": "OnMangeOu Admin",
     "title": "Back-office OnMangeOu",
