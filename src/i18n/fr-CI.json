@@ -28,7 +28,8 @@
     "reviews": "Avis",
     "support": "Support",
     "billing": "Abonnements",
-    "logout": "Se deconnecter"
+    "logout": "Se deconnecter",
+    "advertising": "Publicité"
   },
   "auth": {
     "title": "Connexion au back-office",
@@ -200,5 +201,20 @@
     "confirm": "Confirmer cette action ?",
     "success": "Action enregistrée.",
     "error": "L’action n’a pas abouti. Réessayez."
+  },
+  "ads": {
+    "title": "Campagnes sponsorisées",
+    "hint": "Validez le titre, le restaurant et la période avant diffusion. Aucun encaissement publicitaire. Affichages et clics dédupliqués par affichage, sans suivi nominatif ni mesure de personnes uniques. Les 100 campagnes les plus récentes sont présentées.",
+    "empty": "Aucune campagne.",
+    "reason": "Motif de la décision",
+    "approve": "Approuver",
+    "reject": "Refuser",
+    "pause": "Suspendre",
+    "impressions": "affichages",
+    "clicks": "clics",
+    "PENDING": "À valider",
+    "APPROVED": "Validée",
+    "REJECTED": "Refusée",
+    "PAUSED": "Suspendue"
   }
 }

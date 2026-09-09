@@ -15,6 +15,7 @@ const LINKS = [
   { href: '/audit', labelKey: 'nav.audit' as const },
   { href: '/commandes', labelKey: 'nav.orders' as const },
   { href: '/utilisateurs', labelKey: 'nav.users' as const },
+  { href: '/publicite', labelKey: 'nav.advertising' as const },
   { href: '/avis', labelKey: 'nav.reviews' as const },
   { href: '/support', labelKey: 'nav.support' as const },
   { href: '/abonnements', labelKey: 'nav.billing' as const },
