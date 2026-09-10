@@ -20,11 +20,22 @@ function lookup(path: string): unknown {
   const parts = path.split('.');
   let current: unknown = messages;
 
-  for (const part of parts) {
-    if (typeof current !== 'object' || current === null || !(part in current)) {
+  for (let index = 0; index < parts.length; index += 1) {
+    if (typeof current !== 'object' || current === null) {
       return undefined;
     }
-    current = (current as Record<string, unknown>)[part];
+
+    const record = current as Record<string, unknown>;
+    const remaining = parts.slice(index).join('.');
+    if (remaining in record) {
+      return record[remaining];
+    }
+
+    const part = parts[index];
+    if (!(part in record)) {
+      return undefined;
+    }
+    current = record[part];
   }
 
   return current;
@@ -33,6 +44,16 @@ function lookup(path: string): unknown {
 export function t(key: MessageKey): string {
   const value = lookup(key);
   return typeof value === 'string' ? value : key;
+}
+
+export function codeLabel(namespace: 'audit.actions' | 'modules', code: string): string {
+  const value = lookup(`${namespace}.${code}`);
+  if (typeof value === 'string') {
+    return value;
+  }
+
+  const words = code.replace(/[._-]+/g, ' ').trim();
+  return words ? words.charAt(0).toUpperCase() + words.slice(1) : code;
 }
 
 export function statusLabel(status: string): string {
