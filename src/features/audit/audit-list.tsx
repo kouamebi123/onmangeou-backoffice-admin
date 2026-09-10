@@ -2,7 +2,7 @@ import type { AuditLog } from '@/api/types';
 import { formatDateTime } from '@/api/format';
 import { DataTable } from '@/components/data-table';
 import { EmptyState } from '@/components/feedback';
-import { t } from '@/i18n/messages';
+import { codeLabel, t } from '@/i18n/messages';
 
 export function AuditList({ items }: { items: AuditLog[] }) {
   if (items.length === 0) {
@@ -14,7 +14,11 @@ export function AuditList({ items }: { items: AuditLog[] }) {
       rows={items}
       getRowKey={(row) => row.id}
       columns={[
-        { key: 'action', header: t('audit.action'), render: (row) => row.action },
+        {
+          key: 'action',
+          header: t('audit.action'),
+          render: (row) => codeLabel('audit.actions', row.action),
+        },
         {
           key: 'resource',
           header: t('audit.resource'),

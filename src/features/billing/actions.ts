@@ -12,7 +12,12 @@ export interface SaveBillingResult {
 
 export async function saveModulePricesAction(input: {
   notice: string;
-  modules: Array<{ code: string; monthlyPriceAmount: number; included: boolean }>;
+  modules: Array<{
+    code: string;
+    monthlyPriceAmount: number;
+    included: boolean;
+    enabled: boolean;
+  }>;
 }): Promise<SaveBillingResult> {
   try {
     await adminPut('/admin/module-prices', input);

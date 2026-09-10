@@ -5,7 +5,7 @@ import type { ModulePriceCatalog } from '@/api/admin';
 import { Button } from '@/components/button';
 import { TextArea, TextField } from '@/components/text-field';
 import { saveModulePricesAction } from '@/features/billing/actions';
-import { t } from '@/i18n/messages';
+import { codeLabel, t } from '@/i18n/messages';
 
 export function BillingForm({
   catalog,
@@ -21,15 +21,17 @@ export function BillingForm({
   const [included, setIncluded] = useState<Record<string, boolean>>(
     Object.fromEntries(catalog.modules.map((item) => [item.code, item.included])),
   );
+  const [enabled, setEnabled] = useState<Record<string, boolean>>(
+    Object.fromEntries(catalog.modules.map((item) => [item.code, item.enabled])),
+  );
   const [error, setError] = useState<string | undefined>();
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(false);
 
   async function submit(event: FormEvent) {
     event.preventDefault();
-    if (!canWrite) {
-      return;
-    }
+    if (!canWrite) return;
+
     setLoading(true);
     setError(undefined);
     setSaved(false);
@@ -40,6 +42,7 @@ export function BillingForm({
         code: item.code,
         monthlyPriceAmount: Number.parseInt(amounts[item.code] ?? '0', 10) || 0,
         included: Boolean(included[item.code]),
+        enabled: Boolean(enabled[item.code]),
       })),
     });
 
@@ -67,36 +70,69 @@ export function BillingForm({
         maxLength={500}
         disabled={!canWrite}
       />
-      {catalog.modules.map((item) => (
-        <div key={item.code} className="card stack">
-          <TextField
-            label={`${item.label} (${item.code})`}
-            name={`price-${item.code}`}
-            type="number"
-            min={0}
-            step={1}
-            inputMode="numeric"
-            value={amounts[item.code] ?? '0'}
-            onChange={(event) =>
-              setAmounts((current) => ({ ...current, [item.code]: event.target.value }))
-            }
-            disabled={!canWrite}
-          />
-          <label className="field">
-            <span className="field__label">
-              <input
-                type="checkbox"
-                checked={Boolean(included[item.code])}
-                disabled={!canWrite}
-                onChange={(event) =>
-                  setIncluded((current) => ({ ...current, [item.code]: event.target.checked }))
-                }
-              />{' '}
-              {t('billing.included')}
-            </span>
-          </label>
-        </div>
-      ))}
+
+      {catalog.modules.map((item) => {
+        const isEnabled = Boolean(enabled[item.code]);
+        return (
+          <div key={item.code} className="card stack">
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16 }}>
+              <div>
+                <strong>{codeLabel('modules', item.code)}</strong>
+                <p className="muted" style={{ margin: '4px 0 0' }}>
+                  {isEnabled
+                    ? 'Disponible pour les commerçants'
+                    : 'Masquée et inutilisable pour les commerçants'}
+                </p>
+              </div>
+              <label className="field" style={{ margin: 0 }}>
+                <span className="field__label">
+                  <input
+                    type="checkbox"
+                    checked={isEnabled}
+                    disabled={!canWrite}
+                    onChange={(event) =>
+                      setEnabled((current) => ({
+                        ...current,
+                        [item.code]: event.target.checked,
+                      }))
+                    }
+                  />{' '}
+                  {isEnabled ? 'Activée' : 'Désactivée'}
+                </span>
+              </label>
+            </div>
+
+            <TextField
+              label={t('billing.price')}
+              name={`price-${item.code}`}
+              type="number"
+              min={0}
+              step={1}
+              inputMode="numeric"
+              value={amounts[item.code] ?? '0'}
+              onChange={(event) =>
+                setAmounts((current) => ({ ...current, [item.code]: event.target.value }))
+              }
+              disabled={!canWrite || !isEnabled}
+            />
+
+            <label className="field">
+              <span className="field__label">
+                <input
+                  type="checkbox"
+                  checked={Boolean(included[item.code])}
+                  disabled={!canWrite || !isEnabled}
+                  onChange={(event) =>
+                    setIncluded((current) => ({ ...current, [item.code]: event.target.checked }))
+                  }
+                />{' '}
+                {t('billing.included')}
+              </span>
+            </label>
+          </div>
+        );
+      })}
+
       {error ? (
         <p className="field__error" role="alert">
           {error}
