@@ -1,28 +1,30 @@
 'use client';
 
 import { useState } from 'react';
-import { Button } from '@/components/button';
+import { ConfirmationAction } from '@/components/confirmation-action';
 import { closeTicketAction, hideReviewAction, refundOrderAction } from './actions';
 import { t } from '@/i18n/messages';
 
 function ModerationButton({
   label,
+  confirmLabel,
+  description,
   action,
 }: {
   label: string;
+  confirmLabel: string;
+  description: string;
   action: () => Promise<{ ok: boolean; error?: string }>;
 }) {
-  const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
+
   return (
-    <div>
-      <Button
-        variant="secondary"
-        loading={busy}
-        disabled={busy}
-        onClick={async () => {
-          if (!window.confirm(t('moderation.confirm'))) return;
-          setBusy(true);
+    <div className="stack">
+      <ConfirmationAction
+        triggerLabel={label}
+        confirmLabel={confirmLabel}
+        description={description}
+        onConfirm={async () => {
           setMessage('');
           try {
             const result = await action();
@@ -31,13 +33,9 @@ function ModerationButton({
             );
           } catch {
             setMessage(t('moderation.error'));
-          } finally {
-            setBusy(false);
           }
         }}
-      >
-        {label}
-      </Button>
+      />
       {message ? <p role="status">{message}</p> : null}
     </div>
   );
@@ -45,16 +43,33 @@ function ModerationButton({
 
 export function HideReviewButton({ reviewId }: { reviewId: string }) {
   return (
-    <ModerationButton label={t('moderation.hide')} action={() => hideReviewAction(reviewId)} />
+    <ModerationButton
+      label={t('moderation.hide')}
+      confirmLabel="Confirmer le masquage"
+      description="L’avis sera masqué après votre confirmation."
+      action={() => hideReviewAction(reviewId)}
+    />
   );
 }
+
 export function RefundOrderButton({ orderId }: { orderId: string }) {
   return (
-    <ModerationButton label={t('moderation.refund')} action={() => refundOrderAction(orderId)} />
+    <ModerationButton
+      label={t('moderation.refund')}
+      confirmLabel="Confirmer le remboursement"
+      description="Confirmez le remboursement de cette commande. Cette action sera journalisée."
+      action={() => refundOrderAction(orderId)}
+    />
   );
 }
+
 export function CloseTicketButton({ ticketId }: { ticketId: string }) {
   return (
-    <ModerationButton label={t('moderation.close')} action={() => closeTicketAction(ticketId)} />
+    <ModerationButton
+      label={t('moderation.close')}
+      confirmLabel="Confirmer la clôture"
+      description="Le ticket sera clôturé après votre confirmation."
+      action={() => closeTicketAction(ticketId)}
+    />
   );
 }
