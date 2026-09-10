@@ -32,7 +32,7 @@ function lookup(path: string): unknown {
     }
 
     const part = parts[index];
-    if (!(part in record)) {
+    if (part === undefined || !(part in record)) {
       return undefined;
     }
     current = record[part];
