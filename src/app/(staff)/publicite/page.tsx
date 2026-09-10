@@ -1,21 +1,22 @@
 import { adminGet, fetchAdminCapabilities } from '@/api/admin';
-import { t } from '@/i18n/messages';
 import { CampaignDecision } from '@/features/advertising/decision';
+import { t } from '@/i18n/messages';
+
 export default async function AdvertisingPage() {
   const canWrite = (await fetchAdminCapabilities()).includes('admin.ad.moderate');
-  const list =
-    await adminGet<
-      Array<{
-        id: string;
-        title: string;
-        establishment_name: string;
-        status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'PAUSED';
-        starts_at: string;
-        ends_at: string;
-        impressions: string;
-        clicks: string;
-      }>
-    >('/admin/ad-campaigns');
+  const list = await adminGet<
+    Array<{
+      id: string;
+      title: string;
+      establishment_name: string;
+      status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'PAUSED';
+      starts_at: string;
+      ends_at: string;
+      impressions: string;
+      clicks: string;
+    }>
+  >('/admin/ad-campaigns');
+
   return (
     <div className="stack">
       <h1>{t('ads.title')}</h1>
