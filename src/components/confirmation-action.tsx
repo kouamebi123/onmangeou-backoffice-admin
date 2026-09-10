@@ -41,7 +41,11 @@ export function ConfirmationAction({
 
   if (!open) {
     return (
-      <Button variant={triggerVariant} disabled={disabled} onClick={() => setOpen(true)}>
+      <Button
+        variant={triggerVariant}
+        disabled={disabled}
+        onClick={() => setOpen(true)}
+      >
         {triggerLabel}
       </Button>
     );
@@ -65,7 +69,12 @@ export function ConfirmationAction({
       <strong>{title}</strong>
       {description ? <span className="muted">{description}</span> : null}
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-        <Button variant={confirmVariant} loading={busy} disabled={busy} onClick={() => void confirm()}>
+        <Button
+          variant={confirmVariant}
+          loading={busy}
+          disabled={busy}
+          onClick={() => void confirm()}
+        >
           {confirmLabel}
         </Button>
         <Button variant="outline" disabled={busy} onClick={() => setOpen(false)}>
