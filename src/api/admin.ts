@@ -38,12 +38,20 @@ export async function adminGet<T>(path: string): Promise<ResponseEnvelope<T>> {
 
 export async function adminPut<T>(path: string, body: unknown): Promise<T> {
   const access = await requireAccess();
-  const envelope = await callBackend<T>(path, { method: 'PUT', accessToken: access, body });
+  const envelope = await callBackend<T>(path, {
+    method: 'PUT',
+    accessToken: access,
+    body,
+  });
   if (!envelope) throw new Error(`Reponse vide pour ${path}`);
   return envelope.data;
 }
 
-export async function adminPost<T>(path: string, body: unknown, idempotencyKey?: string): Promise<T> {
+export async function adminPost<T>(
+  path: string,
+  body: unknown,
+  idempotencyKey?: string,
+): Promise<T> {
   const access = await requireAccess();
   const envelope = await callBackend<T>(path, {
     method: 'POST',
@@ -59,7 +67,9 @@ async function collectPages<T>(path: string, query: PageQuery = {}): Promise<T[]
   const items: T[] = [];
   let cursor: string | undefined = query.cursor;
   for (let page = 0; page < MAX_PAGES; page += 1) {
-    const envelope = await adminGet<T[]>(`${path}?${queryString({ ...query, cursor, limit: PAGE_LIMIT })}`);
+    const envelope = await adminGet<T[]>(
+      `${path}?${queryString({ ...query, cursor, limit: PAGE_LIMIT })}`,
+    );
     items.push(...envelope.data);
     if (!envelope.meta.nextCursor) break;
     cursor = envelope.meta.nextCursor;
@@ -67,7 +77,9 @@ async function collectPages<T>(path: string, query: PageQuery = {}): Promise<T[]
   return items;
 }
 
-export async function listVerificationCases(status?: PageQuery['status']): Promise<VerificationCase[]> {
+export async function listVerificationCases(
+  status?: PageQuery['status'],
+): Promise<VerificationCase[]> {
   return collectPages<VerificationCase>('/admin/verification-cases', {
     ...(status === undefined ? {} : { status }),
   });
@@ -101,8 +113,26 @@ export async function listAdminOrders(): Promise<AdminOrder[]> {
   return (await adminGet<AdminOrder[]>('/admin/orders')).data;
 }
 
-export async function listAdminReviews(): Promise<Array<{ id: string; score: number; body: string | null; status: string; establishment_name: string }>> {
-  return (await adminGet<Array<{ id: string; score: number; body: string | null; status: string; establishment_name: string }>>('/admin/reviews')).data;
+export async function listAdminReviews(): Promise<
+  Array<{
+    id: string;
+    score: number;
+    body: string | null;
+    status: string;
+    establishment_name: string;
+  }>
+> {
+  return (
+    await adminGet<
+      Array<{
+        id: string;
+        score: number;
+        body: string | null;
+        status: string;
+        establishment_name: string;
+      }>
+    >('/admin/reviews')
+  ).data;
 }
 
 export interface ModulePriceCatalog {
@@ -122,8 +152,28 @@ export async function fetchModulePrices(): Promise<ModulePriceCatalog> {
   return (await adminGet<ModulePriceCatalog>('/admin/module-prices')).data;
 }
 
-export async function listAdminTickets(): Promise<Array<{ id: string; subject: string; body: string; status: string; full_name: string | null; phone_e164: string }>> {
-  return (await adminGet<Array<{ id: string; subject: string; body: string; status: string; full_name: string | null; phone_e164: string }>>('/admin/support-tickets')).data;
+export async function listAdminTickets(): Promise<
+  Array<{
+    id: string;
+    subject: string;
+    body: string;
+    status: string;
+    full_name: string | null;
+    phone_e164: string;
+  }>
+> {
+  return (
+    await adminGet<
+      Array<{
+        id: string;
+        subject: string;
+        body: string;
+        status: string;
+        full_name: string | null;
+        phone_e164: string;
+      }>
+    >('/admin/support-tickets')
+  ).data;
 }
 
 export async function fetchAdminCapabilities(): Promise<string[]> {
