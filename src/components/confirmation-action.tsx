@@ -41,11 +41,7 @@ export function ConfirmationAction({
 
   if (!open) {
     return (
-      <Button
-        variant={triggerVariant}
-        disabled={disabled}
-        onClick={() => setOpen(true)}
-      >
+      <Button variant={triggerVariant} disabled={disabled} onClick={() => setOpen(true)}>
         {triggerLabel}
       </Button>
     );
