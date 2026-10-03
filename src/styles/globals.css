@@ -469,6 +469,142 @@ p {
   color: var(--color-text-muted);
 }
 
+.billing {
+  padding: 0;
+  overflow: hidden;
+}
+
+.billing__summary {
+  margin: 0;
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border-default);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.billing__table th,
+.billing__table td {
+  padding: var(--space-xs) var(--space-lg);
+  vertical-align: middle;
+}
+
+.billing__table tbody tr:last-child th,
+.billing__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.billing__table tbody th {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+}
+
+.billing__name {
+  display: block;
+}
+
+.billing__hint {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+}
+
+.billing__row--off .billing__name {
+  color: var(--color-text-muted);
+}
+
+.billing__price-head,
+.billing__price {
+  width: 190px;
+  text-align: right;
+}
+
+.billing__price .field__input {
+  width: 100%;
+  min-height: 40px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.billing__check {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-brand-primary);
+}
+
+.billing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.billing__actions .notice {
+  margin: 0;
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: var(--touch-min);
+  cursor: pointer;
+}
+
+.switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.switch__track {
+  position: relative;
+  flex: none;
+  width: 40px;
+  height: 22px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-default);
+  transition: background var(--motion-base);
+}
+
+.switch__track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-surface-white);
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--motion-base);
+}
+
+.switch input:checked + .switch__track {
+  background: var(--color-brand-primary);
+}
+
+.switch input:checked + .switch__track::after {
+  transform: translateX(18px);
+}
+
+.switch input:focus-visible + .switch__track {
+  outline: 2px solid var(--color-brand-accent);
+  outline-offset: 2px;
+}
+
+.switch input:disabled + .switch__track {
+  opacity: 0.55;
+}
+
+.switch__label {
+  min-width: 84px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
 @media (max-width: 860px) {
   .shell {
     grid-template-columns: 1fr;

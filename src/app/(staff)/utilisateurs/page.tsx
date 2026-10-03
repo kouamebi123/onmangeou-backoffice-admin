@@ -1,6 +1,7 @@
 import { listUsers } from '@/api/admin';
 import { DataTable } from '@/components/data-table';
 import { EmptyState } from '@/components/feedback';
+import { StatusChip } from '@/components/status-chip';
 import { t } from '@/i18n/messages';
 
 export default async function UsersPage() {
@@ -20,7 +21,11 @@ export default async function UsersPage() {
           columns={[
             { key: 'phone', header: t('users.phone'), render: (row) => row.phoneE164 },
             { key: 'name', header: t('users.name'), render: (row) => row.fullName ?? '—' },
-            { key: 'status', header: t('users.status'), render: (row) => row.status },
+            {
+              key: 'status',
+              header: t('users.status'),
+              render: (row) => <StatusChip status={row.status} />,
+            },
             {
               key: 'orgs',
               header: t('users.organizations'),

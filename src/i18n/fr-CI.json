@@ -20,15 +20,15 @@
   },
   "nav": {
     "dashboard": "Tableau de bord",
-    "verification": "Verification",
-    "establishments": "Etablissements",
+    "verification": "Vérification",
+    "establishments": "Établissements",
     "audit": "Journal d'audit",
     "orders": "Commandes",
     "users": "Utilisateurs",
     "reviews": "Avis",
     "support": "Support",
     "billing": "Abonnements",
-    "logout": "Se deconnecter",
+    "logout": "Se déconnecter",
     "advertising": "Publicité"
   },
   "auth": {
@@ -40,91 +40,97 @@
     "codePlaceholder": "000000",
     "requestCode": "Recevoir le code",
     "verify": "Se connecter",
-    "backToPhone": "Changer de numero",
+    "backToPhone": "Changer de numéro",
     "devCodeNotice": "Environnement local",
-    "devCodeLabel": "Code de developpement",
-    "sessionExpired": "Votre session a expire. Connectez-vous a nouveau.",
+    "devCodeLabel": "Code de développement",
+    "sessionExpired": "Votre session a expiré. Connectez-vous à nouveau.",
     "kicker": "Personnel nominatif",
     "panelTitle": "Garder la plateforme propre",
-    "panelBody": "Verification des etablissements, suivi des publications et lecture seule du journal d'audit."
+    "panelBody": "Vérification des établissements, suivi des publications et lecture seule du journal d'audit."
   },
   "accessDenied": {
-    "title": "Acces refuse",
-    "body": "Ce compte n'a pas de role interne sur la plateforme. Le back-office est reserve au personnel nominatif OnMangeOu.",
-    "logout": "Se deconnecter"
+    "title": "Accès refusé",
+    "body": "Ce compte n'a pas de rôle interne sur la plateforme. Le back-office est réservé au personnel nominatif OnMangeOu.",
+    "logout": "Se déconnecter"
   },
   "dashboard": {
     "title": "Tableau de bord",
     "kicker": "File du jour",
-    "intro": "Traitez d'abord les dossiers de verification. Les etablissements publies restent visibles ici pour un controle rapide.",
+    "intro": "Traitez d'abord les dossiers de vérification. Les établissements publiés restent visibles ici pour un contrôle rapide.",
     "openCases": "Dossiers ouverts",
-    "openCasesHint": "A examiner avant publication",
-    "establishments": "Etablissements",
+    "openCasesHint": "À examiner avant publication",
+    "establishments": "Établissements",
     "establishmentsHint": "Tous statuts confondus",
     "users": "Utilisateurs",
     "usersHint": "Comptes clients et commerçants",
     "browseUsers": "Voir les comptes",
     "openQueue": "Ouvrir la file",
-    "browseEstablishments": "Voir les etablissements",
+    "browseEstablishments": "Voir les établissements",
     "nextTitle": "Prochaine action",
-    "nextBody": "Chaque decision laisse un motif dans le journal d'audit. Aucune impersonation n'est autorisee."
+    "nextBody": "Chaque décision laisse un motif dans le journal d'audit. Aucune impersonation n'est autorisée."
   },
   "verification": {
-    "title": "Dossiers de verification",
-    "empty": "Aucun dossier de verification pour le moment.",
+    "title": "Dossiers de vérification",
+    "empty": "Aucun dossier de vérification pour le moment.",
     "organization": "Organisation",
-    "establishment": "Etablissement",
-    "submittedAt": "Depose le",
+    "establishment": "Établissement",
+    "submittedAt": "Déposé le",
     "status": "Statut",
-    "decide": "Decider",
+    "decide": "Décider",
     "approve": "Approuver",
     "reject": "Refuser",
-    "reasonLabel": "Motif de la decision",
-    "reasonPlaceholder": "Expliquez la decision. Ce motif est conserve dans le journal d'audit.",
+    "reasonLabel": "Motif de la décision",
+    "reasonPlaceholder": "Expliquez la décision. Ce motif est conservé dans le journal d'audit.",
     "reasonRequired": "Le motif est obligatoire.",
-    "submit": "Enregistrer la decision",
+    "submit": "Enregistrer la décision",
     "cancel": "Annuler"
   },
   "establishments": {
-    "title": "Etablissements",
-    "empty": "Aucun etablissement n'a encore ete cree.",
+    "title": "Établissements",
+    "empty": "Aucun établissement n'a encore été créé.",
     "name": "Nom",
     "organization": "Organisation",
     "city": "Ville",
     "status": "Statut",
-    "verifiedAt": "Verifie le"
+    "verifiedAt": "Vérifié le"
   },
   "users": {
     "title": "Utilisateurs",
     "empty": "Aucun compte pour le moment.",
-    "phone": "Telephone",
+    "phone": "Téléphone",
     "name": "Nom",
     "status": "Statut",
     "organizations": "Organisations"
   },
   "billing": {
-    "title": "Bareme d’abonnement",
-    "intro": "Ces montants sont ceux affiches au commerçant à la création du restaurant. Rien n’est code dans les applications.",
-    "noticeLabel": "Texte affiche aux commerçants",
+    "title": "Barème d’abonnement",
+    "intro": "Ces montants sont ceux affichés au commerçant à la création du restaurant. Rien n’est codé dans les applications.",
+    "noticeLabel": "Texte affiché aux commerçants",
     "noticePlaceholder": "Exemple : Barème en vigueur à partir du 1er septembre.",
     "module": "Module",
     "price": "Prix mensuel (FCFA)",
     "included": "Inclus",
-    "save": "Publier le bareme",
-    "saved": "Bareme publie.",
-    "empty": "Aucun module en base. Verifiez la table module_prices.",
-    "readonly": "Lecture seule. Seul un administrateur peut modifier les tarifs."
+    "save": "Publier le barème",
+    "saved": "Barème publié.",
+    "empty": "Aucun module en base. Vérifiez la table module_prices.",
+    "readonly": "Lecture seule. Seul un administrateur peut modifier les tarifs.",
+    "availability": "Disponibilité",
+    "enabled": "Activée",
+    "disabled": "Désactivée",
+    "disabledHint": "Masquée et inutilisable pour les commerçants",
+    "summary": "{enabled} fonctionnalités activées sur {total}",
+    "unsaved": "Modifications non publiées."
   },
   "orders": {
     "title": "Commandes",
     "empty": "Aucune commande.",
     "refund": "Rembourser",
-    "refunded": "Rembourse"
+    "refunded": "Remboursé"
   },
   "audit": {
     "title": "Journal d'audit",
-    "empty": "Aucun evenement d'audit pour le moment.",
-    "readonly": "Lecture seule. Aucune alteration n'est possible, y compris pour un administrateur.",
+    "empty": "Aucun événement d'audit pour le moment.",
+    "readonly": "Lecture seule. Aucune altération n'est possible, y compris pour un administrateur.",
     "action": "Action",
     "resource": "Ressource",
     "actor": "Acteur",
@@ -160,19 +166,23 @@
   "status": {
     "OPEN": "Ouvert",
     "IN_REVIEW": "En revue",
-    "APPROVED": "Approuve",
-    "REJECTED": "Refuse",
+    "APPROVED": "Approuvé",
+    "REJECTED": "Refusé",
     "DRAFT": "Brouillon",
-    "PENDING_VERIFICATION": "En attente de verification",
-    "PUBLISHED": "Publie",
+    "PENDING_VERIFICATION": "En attente de vérification",
+    "PUBLISHED": "Publié",
     "SUSPENDED": "Suspendu",
-    "CLOSED": "Ferme"
+    "CLOSED": "Fermé",
+    "ACTIVE": "Actif",
+    "PENDING": "En attente",
+    "ANONYMIZED": "Anonymisé",
+    "INVITED": "Invité"
   },
   "states": {
     "loading": "Chargement...",
     "errorTitle": "Impossible d'afficher cette page",
-    "retry": "Reessayer",
-    "network": "La connexion a echoue. Verifiez votre reseau puis reessayez."
+    "retry": "Réessayer",
+    "network": "La connexion a échoué. Vérifiez votre réseau puis réessayez."
   },
   "actions": {
     "close": "Fermer"

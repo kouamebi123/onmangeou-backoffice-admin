@@ -1,18 +1,18 @@
-# OnMangeOu � back-office administration
+# OnMangeOu — back-office administration
 
-D�p�t autonome du back-office interne. Frontend web Next.js, sans base de donn�es.
+Dépôt autonome du back-office interne. Frontend web Next.js, sans base de données.
 
-## R�f�rence
+## Référence
 
-- Sp�cification ma�tre : `docs/reference/OnMangeOu_Specification_Technique_Maitre.md` (sections 3.4, 6.5, 19, 31)
+- Spécification maître : `docs/reference/OnMangeOu_Specification_Technique_Maitre.md` (sections 3.4, 6.5, 19, 31)
 - Tokens de marque : `docs/reference/onmangeou-tokens.json`
 - Logos : `public/brand/`
 
-## P�rim�tre de cette tranche
+## Périmètre de cette tranche
 
-Connexion OTP, tableau de bord, dossiers de v�rification, supervision des �tablissements, journal d�audit en lecture seule.
+Connexion OTP, tableau de bord, dossiers de vérification, supervision des établissements, journal d’audit en lecture seule.
 
-Toutes les op�rations passent par l�API `http://localhost:3000/api/v1` via le BFF (`src/app/api/session/*`). Aucun acc�s PostgreSQL. Les jetons JWT ne quittent jamais le serveur Next : cookies HttpOnly uniquement.
+Toutes les opérations passent par l’API `http://localhost:3000/api/v1` via le BFF (`src/app/api/session/*`). Aucun accès PostgreSQL. Les jetons JWT ne quittent jamais le serveur Next : cookies HttpOnly uniquement.
 
 ## Commandes
 
@@ -24,17 +24,17 @@ pnpm test
 pnpm verify
 ```
 
-Le back-office �coute le port 3001. L�API occupe le 3000.
+Le back-office écoute le port 3002. L’API occupe le 3000.
 
-## R�gles imp�ratives
+## Règles impératives
 
 - TypeScript strict, aucun `any`.
-- Textes utilisateur en fran�ais via `src/i18n/fr-CI.json` uniquement.
-- Tokens de marque, Inter, pas de biblioth�que d�interface tierce.
+- Textes utilisateur en français via `src/i18n/fr-CI.json` uniquement.
+- Tokens de marque, Inter, pas de bibliothèque d’interface tierce.
 - Compte nominatif : aucune impersonation. Bandeau visible sur les pages internes.
-- Journal d�audit : lecture seule, aucun bouton de suppression.
-- Motif obligatoire pour toute d�cision de v�rification.
-- `proxy.ts` (convention Next.js 16, ex-middleware) prot�ge les pages internes.
+- Journal d’audit : lecture seule, aucun bouton de suppression.
+- Motif obligatoire pour toute décision de vérification.
+- `proxy.ts` (convention Next.js 16, ex-middleware) protège les pages internes.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

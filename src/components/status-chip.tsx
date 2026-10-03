@@ -12,6 +12,10 @@ const TONES: Record<string, Tone> = {
   CLOSED: 'neutral',
   DRAFT: 'neutral',
   PENDING_VERIFICATION: 'warning',
+  ACTIVE: 'success',
+  PENDING: 'warning',
+  INVITED: 'warning',
+  ANONYMIZED: 'neutral',
 };
 
 export function StatusChip({ status }: { status: string }) {
