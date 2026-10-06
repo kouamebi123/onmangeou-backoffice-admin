@@ -17,6 +17,7 @@ export function ConnexionForm() {
   const [step, setStep] = useState<Step>('phone');
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
+  const [accessCode, setAccessCode] = useState('');
   const [devCode, setDevCode] = useState<string | undefined>();
   const [error, setError] = useState<string | undefined>();
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,8 @@ export function ConnexionForm() {
       const response = await fetch('/api/session/otp/request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone }),
+        // Le code d'accès n'est jamais conservé côté navigateur : il ne vit que le temps de la connexion.
+        body: JSON.stringify({ phone, ...(accessCode ? { staffAccessCode: accessCode } : {}) }),
       });
       const body: unknown = await response.json();
 
@@ -65,6 +67,7 @@ export function ConnexionForm() {
         body: JSON.stringify({
           phone,
           code,
+          ...(accessCode ? { staffAccessCode: accessCode } : {}),
           device: { installId: getOrCreateInstallId(), platform: 'WEB' },
         }),
       });
@@ -93,6 +96,16 @@ export function ConnexionForm() {
           placeholder={t('auth.phonePlaceholder')}
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
+          required
+        />
+        <TextField
+          label={t('auth.accessCodeLabel')}
+          hint={t('auth.accessCodeHint')}
+          name="staffAccessCode"
+          type="password"
+          autoComplete="current-password"
+          value={accessCode}
+          onChange={(event) => setAccessCode(event.target.value)}
           required
         />
         {error ? (
@@ -140,6 +153,7 @@ export function ConnexionForm() {
         onClick={() => {
           setStep('phone');
           setCode('');
+          setAccessCode('');
           setDevCode(undefined);
           setError(undefined);
         }}

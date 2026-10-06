@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Signature } from '@/components/signature';
 import { ConnexionForm } from '@/features/auth/connexion-form';
 import { t } from '@/i18n/messages';
 
@@ -23,6 +24,7 @@ export default function ConnexionPage() {
         <h1>{t('auth.title')}</h1>
         <p className="muted">{t('auth.subtitle')}</p>
         <ConnexionForm />
+        <Signature />
       </section>
     </main>
   );

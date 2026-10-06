@@ -14,6 +14,7 @@
     "photo": "Photo jointe à l’avis signalé"
   },
   "app": {
+    "signedBy": "Signé",
     "name": "OnMangeOu Admin",
     "title": "Back-office OnMangeOu",
     "nominativeBanner": "Compte nominatif - aucune impersonation"
@@ -33,7 +34,7 @@
   },
   "auth": {
     "title": "Connexion au back-office",
-    "subtitle": "Entrez votre numéro de téléphone. Un code à usage unique vous sera envoyé.",
+    "subtitle": "Entrez votre numéro et le code d’accès du personnel. Un code à usage unique vous sera ensuite envoyé.",
     "phoneLabel": "Numéro de téléphone",
     "phonePlaceholder": "07 01 02 03 04",
     "codeLabel": "Code reçu",
@@ -41,12 +42,14 @@
     "requestCode": "Recevoir le code",
     "verify": "Se connecter",
     "backToPhone": "Changer de numéro",
-    "devCodeNotice": "Environnement local",
+    "devCodeNotice": "Environnement de test",
     "devCodeLabel": "Code de développement",
     "sessionExpired": "Votre session a expiré. Connectez-vous à nouveau.",
     "kicker": "Personnel nominatif",
     "panelTitle": "Garder la plateforme propre",
-    "panelBody": "Vérification des établissements, suivi des publications et lecture seule du journal d'audit."
+    "panelBody": "Vérification des établissements, suivi des publications et lecture seule du journal d'audit.",
+    "accessCodeLabel": "Code d’accès du personnel",
+    "accessCodeHint": "Second facteur réservé à l’équipe OnMangeOu. Il n’est pas envoyé par SMS."
   },
   "accessDenied": {
     "title": "Accès refusé",

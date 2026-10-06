@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { t } from '@/i18n/messages';
 import { NominativeBanner } from '@/components/nominative-banner';
 import { LogoutButton } from '@/components/logout-button';
+import { Signature } from '@/components/signature';
 
 const LINKS = [
   { href: '/', labelKey: 'nav.dashboard' as const },
@@ -56,6 +57,7 @@ export function AppShell({ children, actorLabel }: { children: ReactNode; actorL
           })}
         </nav>
         <LogoutButton />
+        <Signature onDark />
       </aside>
       <div className="shell__main">
         <NominativeBanner />
