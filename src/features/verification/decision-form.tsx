@@ -28,7 +28,7 @@ export function DecisionForm({ item, onClose }: { item: VerificationCase; onClos
   }
 
   return (
-    <form className="stack card">
+    <form className="stack card appear">
       <p>
         {item.organizationName}
         {item.establishmentName ? ` - ${item.establishmentName}` : ''}

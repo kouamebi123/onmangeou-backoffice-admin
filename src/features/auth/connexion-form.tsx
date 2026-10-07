@@ -89,7 +89,7 @@ export function ConnexionForm() {
 
   if (step === 'phone') {
     return (
-      <form className="stack" onSubmit={(event) => void requestOtp(event)}>
+      <form key="phone" className="stack appear" onSubmit={(event) => void requestOtp(event)}>
         <PhoneField
           label={t('auth.phoneLabel')}
           name="phone"
@@ -121,7 +121,7 @@ export function ConnexionForm() {
   }
 
   return (
-    <form className="stack" onSubmit={(event) => void verifyOtp(event)}>
+    <form key="code" className="stack appear" onSubmit={(event) => void verifyOtp(event)}>
       {devCode ? (
         <div className="dev-code" role="status">
           <span className="field__hint">{t('auth.devCodeNotice')}</span>

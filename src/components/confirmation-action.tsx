@@ -51,6 +51,7 @@ export function ConfirmationAction({
     <div
       role="group"
       aria-label={title}
+      className="appear"
       style={{
         display: 'grid',
         gap: 10,

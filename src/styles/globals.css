@@ -725,3 +725,24 @@ p {
     transform: none;
   }
 }
+
+/* Rien n'apparaît d'un coup : pages, étapes, messages et panneaux ouverts se
+   posent en fondu avec une légère montée. */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shell__content > *,
+  .login__card,
+  .login__brand > *,
+  .appear,
+  .field__error,
+  .dev-code,
+  .notice[role='status'] {
+    animation: appear var(--motion-slow, 320ms) cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+}
